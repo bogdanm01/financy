@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bacnground_1"
+    android:background="@drawable/background_1"
     tools:context=".SignInActivity">
 
     <!-- Login to your account -->
@@ -12,7 +12,7 @@
         android:id="@+id/id_login_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="315dp"
+        android:layout_marginTop="325dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:text="Login to your account"
@@ -83,11 +83,11 @@
         />
 
     <TextView
-        android:id="@+id/id_bottom_text"
+        android:id="@+id/login_bottom_text"
         android:layout_below="@id/id_btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:text="Don't have an account? Sign up"

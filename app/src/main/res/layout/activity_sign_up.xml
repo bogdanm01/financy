@@ -1,11 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_sign_up"
     tools:context=".SignUpActivity">
 
+    <!-- Create new account -->
+    <TextView
+        android:id="@+id/id_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:text="Welcome to finacy!"
+        android:textColor="@color/black"
+        android:textSize="22sp" />
 
+    <TextView
+        android:id="@+id/id_login_detail_text"
+        android:layout_below="@id/id_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Register a new account below"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- REGISTER FULL NAME INPUT -->
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/id_register_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_login_detail_text"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="#08000000"
+        android:fontFamily="@font/poppins"
+        android:textSize="14dp"
+        android:hint="Full name"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="12dp"
+        android:padding="20dp" />
+
+    <!-- REGISTER EMAIL INPUT -->
+    <EditText
+        android:singleLine="true"
+        android:id="@+id/id_register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_name"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="20dp"
+        android:background="#08000000"
+        android:fontFamily="@font/poppins"
+        android:textSize="14dp"
+        android:hint="Email"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="12dp"
+        android:padding="20dp" />
+
+    <EditText
+        android:id="@+id/id_edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_register_email"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#08000000"
+        android:fontFamily="@font/poppins"
+        android:textSize="14sp"
+        android:hint="Password"
+        android:ellipsize="start"
+        android:gravity="start"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="12dp"
+        android:padding="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_btn_register"
+        android:layout_below="@id/id_edit_password"
+        android:text="REGISTER"
+        android:fontFamily="@font/poppins_medium"
+        android:letterSpacing="0.06"
+        android:backgroundTint="#5193F2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="15dp"
+        />
+
+    <TextView
+        android:id="@+id/id_bottom_text"
+        android:layout_below="@id/id_btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:text="Already have an account? Sign in"
+        android:textColor="#333"
+        android:textSize="13sp" />
+
+</RelativeLayout>
