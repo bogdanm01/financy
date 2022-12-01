@@ -60,9 +60,10 @@
         android:fontFamily="@font/poppins"
         android:textSize="14dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:ellipsize="start"
         android:gravity="start"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
         android:drawablePadding="12dp"
         android:padding="20dp" />
     
