@@ -39,6 +39,9 @@ class SignInActivity : AppCompatActivity() {
                     }
                 }
             }
+            else {
+                Toast.makeText(this, "Email and password are required", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
