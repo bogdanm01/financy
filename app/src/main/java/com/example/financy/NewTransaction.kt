@@ -69,12 +69,12 @@ class NewTransaction : AppCompatActivity() {
                     }
                 }
 
-                val transaction = Transaction(expenseName, expenseAmount, expenseDate, expenseCategory)
-
                 database = FirebaseDatabase.getInstance().getReference("Transactions")
-                val key = database.child("Transactions").push().key
 
-                database.child(key!!).setValue(transaction).addOnSuccessListener {
+                val transactionId = database.child("Transactions").push().key
+                val transaction = Transaction(transactionId, expenseName, expenseAmount, expenseDate, expenseCategory)
+
+                database.child(transactionId!!).setValue(transaction).addOnSuccessListener {
 
                     labelInput.text?.clear()
                     amountInput.text?.clear()
@@ -82,16 +82,8 @@ class NewTransaction : AppCompatActivity() {
                     noteInput.text?.clear()
 
                     Toast.makeText(this, "Transaction Added!", Toast.LENGTH_SHORT).show()
-
-
                 }
-
-
             }
-
-
-
-
         }
 
         closeBtn.setOnClickListener{

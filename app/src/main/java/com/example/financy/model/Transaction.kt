@@ -2,15 +2,18 @@ package com.example.financy.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.example.financy.NewTransaction
 import java.time.LocalDate
 
 data class Transaction(
-    val name: String ? = null,
-    val amount: Double ? = 0.0,
-    val date: String ? = LocalDate.now().toString() ,
-    val category: String ? = null,
+    val transactionId : String? = null,
+    val name: String? = null,
+    val amount: Double? = 0.0,
+    val date: String? = LocalDate.now().toString() ,
+    val category: String? = null,
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readDouble(),
         parcel.readString()!!,
@@ -19,6 +22,7 @@ data class Transaction(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(transactionId)
         parcel.writeString(name)
         parcel.writeDouble(amount!!)
         parcel.writeString(date)
