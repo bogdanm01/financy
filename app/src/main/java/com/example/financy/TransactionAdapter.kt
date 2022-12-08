@@ -33,7 +33,7 @@ class TransactionAdapter(private val transactionList: ArrayList<Transaction>) :
         val transaction = transactionList[position]
         holder.expenseName.text = transaction.name
         holder.expenseCategory.text = transaction.category
-        holder.expenseDate.text = transaction.date.toString()
+        holder.expenseDate.text = formatDate(transaction.date.toString());
 
         val context = holder.expenseAmount.context
 
@@ -52,5 +52,10 @@ class TransactionAdapter(private val transactionList: ArrayList<Transaction>) :
 
     override fun getItemCount(): Int {
         return transactionList.size
+    }
+
+    private fun formatDate(date:String):String {
+        val array = date.split("-");
+        return array.reversed().joinToString(separator = "/");
     }
 }
