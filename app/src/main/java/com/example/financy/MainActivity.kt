@@ -85,17 +85,6 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
-
-
-//                    val filteredList = mutableListOf<com.example.financy.model.Transaction>()
-//
-//                    for (transaction in transactionList) {
-//                        if (LocalDate.parse(transaction.date).month == LocalDate.now().month) {
-//                            Log.i("BOKI", LocalDate.parse(transaction.date).month.toString())
-//                            filteredList.add(transaction)
-//                        }
-//                    }
-
                     updateDashboard()
 
                     transactionAdapter = TransactionAdapter(transactionList)
@@ -112,9 +101,6 @@ class MainActivity : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
-
-
     }
 }
