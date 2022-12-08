@@ -7,15 +7,110 @@
     tools:context=".DetailActivity">
 
     <TextView
-        android:id="@+id/test"
+        android:id="@+id/transactionLabel"
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DETAIL VIEW"
+        android:text="Transaction Label"
         android:textSize="32sp"
         android:gravity="center"
         android:textColor="#333"
         android:textStyle="bold">
-
     </TextView>
+
+    <LinearLayout
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/transactionAmountLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionLabel"
+
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/transactionAmountText"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textSize="18sp"
+            android:textColor="#333">
+        </TextView>
+        <TextView
+            android:id="@+id/transactionAmountValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$400.00"
+            android:textSize="26sp"
+            android:textColor="#333"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginHorizontal="12dp"
+        android:id="@+id/transactionCategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionAmountLayout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/transactionCategoryText"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:textSize="18sp"
+            android:textColor="#333">
+        </TextView>
+        <TextView
+            android:id="@+id/transactionCategoryValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Income"
+            android:textSize="26sp"
+            android:textColor="#333"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginHorizontal="12dp"
+        android:id="@+id/transactionDateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionCategoryLayout"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/transactionDateText"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="18sp"
+            android:textColor="#333">
+        </TextView>
+        <TextView
+            android:id="@+id/transactionDateValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2022-12-05"
+            android:textSize="26sp"
+            android:textColor="#333"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+
+
+    <Button
+        android:layout_marginTop="18dp"
+        android:id="@+id/deleteTransactionBtn"
+        android:layout_below="@id/transactionDateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:paddingVertical="15dp"
+        android:text="Delete transaction" />
 
 </RelativeLayout>
