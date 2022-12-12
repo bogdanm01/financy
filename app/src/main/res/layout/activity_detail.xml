@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".activities.DetailActivity">
 
     <TextView
-        android:id="@+id/transactionLabel"
+        android:id="@+id/heading"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Transaction Label"
+        android:text="Transaction details"
+        android:layout_marginBottom="18dp"
         android:textSize="32sp"
         android:gravity="center"
         android:textColor="#333"
@@ -20,24 +21,22 @@
 
     <LinearLayout
         android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="15dp"
-        android:id="@+id/transactionAmountLayout"
+        android:id="@+id/transactionNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/transactionLabel"
-
+        android:layout_below="@id/heading"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/transactionAmountText"
+            android:id="@+id/transactionNameText"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amount"
+            android:text="Name"
             android:textSize="18sp"
             android:textColor="#333">
         </TextView>
         <TextView
-            android:id="@+id/transactionAmountValue"
+            android:id="@+id/transactionNameValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="$400.00"
@@ -49,6 +48,36 @@
 
     <LinearLayout
         android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/transactionAmountLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionNameLayout"
+
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/transactionAmountText"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textSize="18sp"
+            android:textColor="#333">
+        </TextView>
+        <TextView
+            android:id="@+id/transactionAmountValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salary"
+            android:textSize="26sp"
+            android:textColor="#333"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/transactionCategoryLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,10 +109,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/transactionCategoryLayout"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/transactionDateText"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Date"
@@ -101,12 +131,38 @@
         </TextView>
     </LinearLayout>
 
-
+    <LinearLayout
+        android:layout_marginHorizontal="12dp"
+        android:id="@+id/transactionNoteLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/transactionDateLayout"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/transactionNoteText"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Note"
+            android:textSize="18sp"
+            android:textColor="#333">
+        </TextView>
+        <TextView
+            android:id="@+id/transactionNoteValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Some transaction description text goues right here..."
+            android:lineHeight="35sp"
+            android:textSize="22sp"
+            android:textColor="#333">
+        </TextView>
+    </LinearLayout>
 
     <Button
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="25dp"
         android:id="@+id/deleteTransactionBtn"
-        android:layout_below="@id/transactionDateLayout"
+        android:layout_below="@id/transactionNoteLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_sign_up"
-    tools:context=".SignUpActivity">
+    tools:context=".activities.SignUpActivity">
 
     <!-- Create new account -->
     <TextView
@@ -31,23 +31,6 @@
         android:textColor="@color/black"
         android:textSize="14sp" />
 
-    <!-- REGISTER FULL NAME INPUT -->
-    <EditText
-        android:singleLine="true"
-        android:id="@+id/id_register_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/id_login_detail_text"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:background="#08000000"
-        android:fontFamily="@font/poppins"
-        android:textSize="14dp"
-        android:hint="Full name"
-        android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="12dp"
-        android:padding="20dp" />
 
     <!-- REGISTER EMAIL INPUT -->
     <EditText
@@ -55,7 +38,7 @@
         android:id="@+id/id_register_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/id_register_name"
+        android:layout_below="@id/id_login_detail_text"
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
@@ -86,6 +69,25 @@
         android:drawablePadding="12dp"
         android:padding="20dp" />
 
+    <EditText
+        android:id="@+id/id_confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/id_edit_password"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#08000000"
+        android:fontFamily="@font/poppins"
+        android:textSize="14sp"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        android:ellipsize="start"
+        android:gravity="start"
+        android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:drawablePadding="12dp"
+        android:padding="20dp" />
+
 <!--    <com.google.android.material.textfield.TextInputLayout-->
 <!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
 <!--        android:id="@+id/etPasswordLayout"-->
@@ -105,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/id_btn_register"
-        android:layout_below="@id/id_edit_password"
+        android:layout_below="@id/id_confirm_password"
         android:text="REGISTER"
         android:fontFamily="@font/poppins_medium"
         android:letterSpacing="0.06"
