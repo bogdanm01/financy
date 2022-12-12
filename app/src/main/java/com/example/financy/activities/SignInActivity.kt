@@ -1,4 +1,4 @@
-package com.example.financy
+package com.example.financy.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

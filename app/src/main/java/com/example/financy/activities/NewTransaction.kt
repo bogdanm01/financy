@@ -1,4 +1,4 @@
-package com.example.financy
+package com.example.financy.activities
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -7,19 +7,16 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.widget.addTextChangedListener
-import com.example.financy.model.Transaction
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.example.financy.R
+import com.example.financy.TransactionRepository
+import com.example.financy.models.Transaction
 import kotlinx.android.synthetic.main.activity_new_transaction.*
 import kotlinx.android.synthetic.main.transaction_item.*
 import java.time.LocalDate
 import java.util.*
 
 class NewTransaction : AppCompatActivity() {
-
-    private lateinit var database: DatabaseReference
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,13 +28,13 @@ class NewTransaction : AppCompatActivity() {
         (categoryLayout.editText as? AutoCompleteTextView)?.setAdapter(adapter)
 
         labelInput.addTextChangedListener {
-            if (it!!.count() > 0) {
+            if (it!!.isNotEmpty()) {
                 labelLayout.error = null
             }
         }
 
         amountInput.addTextChangedListener {
-            if (it!!.count() > 0) {
+            if (it!!.isNotEmpty()) {
                 amountLayout.error = null
             }
         }
@@ -49,45 +46,60 @@ class NewTransaction : AppCompatActivity() {
             val note = noteInput.text.toString()
             val expenseDate = LocalDate.now().toString()
 
-            var isInputValid: Boolean = true;
+            resetErrors()
 
-            if(expenseName.isEmpty()) {
-                labelLayout.error= "Please enter a valid name"
-                isInputValid = false
-            }
-
-            if(expenseAmount == null) {
-                amountLayout.error = "Please enter a valid amount"
-                isInputValid = false
-            }
-
-            if(isInputValid) {
-
-                if(!expenseCategory.equals("Income")) {
-                    if (expenseAmount != null) {
-                        expenseAmount *= -1
-                    }
+            if(validateFields(expenseName, expenseAmount, expenseCategory)) {
+                if(expenseCategory != "Income" && expenseAmount != null) {
+                    expenseAmount *= -1
                 }
 
-                database = FirebaseDatabase.getInstance().getReference("Transactions")
+                val transaction = Transaction(null, expenseName, expenseAmount, expenseDate, expenseCategory, note)
 
-                val transactionId = database.child("Transactions").push().key
-                val transaction = Transaction(transactionId, expenseName, expenseAmount, expenseDate, expenseCategory)
-
-                database.child(transactionId!!).setValue(transaction).addOnSuccessListener {
-
-                    labelInput.text?.clear()
-                    amountInput.text?.clear()
-                    auto_complete_text?.text?.clear()
-                    noteInput.text?.clear()
-
+                TransactionRepository.insertTransaction(transaction).addOnSuccessListener {
+                    clearInputFields()
                     Toast.makeText(this, "Transaction Added!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-        closeBtn.setOnClickListener{
+        closeBtn.setOnClickListener {
             finish()
         }
+    }
+
+    private fun validateFields(
+        expenseName: String,
+        expenseAmount: Double?,
+        expenseCategory: String
+    ): Boolean {
+        if (expenseName.isEmpty()) {
+            labelLayout.error = "Please enter a valid name"
+            return false
+        }
+
+        if (expenseAmount == null) {
+            amountLayout.error = "Please enter a valid amount"
+            return false
+        }
+
+        if (expenseCategory.isEmpty()) {
+            categoryLayout.error = "Please select a valid category"
+            return false
+        }
+
+        return true
+    }
+
+    private fun resetErrors() {
+        labelLayout.error = ""
+        amountLayout.error = ""
+        categoryLayout.error = ""
+    }
+
+    private fun clearInputFields() {
+        labelInput.text?.clear()
+        amountInput.text?.clear()
+        auto_complete_text?.text?.clear()
+        noteInput.text?.clear()
     }
 }
