@@ -43,25 +43,4 @@ object Util {
         return array.reversed().joinToString(separator = "/")
     }
 
-//    fun validateNewTransactionInput(
-//        expenseName: String,
-//        expenseAmount: String,
-//        expenseCategory: String):Boolean {
-//        if (expenseName.isEmpty()) {
-//            labelLayout.error = "Please enter a valid name"
-//            return false
-//        }
-//
-//        if (expenseAmount == null) {
-//            amountLayout.error = "Please enter a valid amount"
-//            return false
-//        }
-//
-//        if (expenseCategory.isEmpty()) {
-//            categoryLayout.error = "Please select a valid category"
-//            return false
-//        }
-//
-//        return true
-//    }
 }

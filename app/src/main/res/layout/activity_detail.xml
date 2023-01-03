@@ -152,7 +152,7 @@
             android:id="@+id/transactionNoteValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Some transaction description text goues right here..."
+            android:text="Some transaction description text goes right here..."
             android:lineHeight="35sp"
             android:textSize="22sp"
             android:textColor="#333">
